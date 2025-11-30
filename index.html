@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>جليت المصطفى — خبير نظم المعلومات الجغرافية (GIS)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-dark: #081018;
+      --panel-dark: #0b1620;
+      --text-light: #e6f3ee;
+      --muted: #9fb8a8;
+      --gis-green: #1db954; /* accent */
+      --accent-2: #33c37d;
+      --glass: rgba(255,255,255,0.03);
+      --card-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, #07121a 100%);
+      color: var(--text-light);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      direction: rtl;
+    }
+    .navbar{background:rgba(8,16,24,0.6)!important;backdrop-filter:blur(6px)}
+    .brand{font-weight:700;color:var(--gis-green)}
+    .hero{
+      padding:110px 0 70px;
+      text-align:center;
+    }
+    .profile-img{
+      width:210px;height:210px;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,0.05);box-shadow:0 10px 35px rgba(0,0,0,0.7);
+    }
+    .hero h1{font-size:2.6rem;margin-top:18px;color:var(--text-light)}
+    .hero p.lead{color:var(--muted);font-size:1.05rem}
+    .badge-light-custom{background:rgba(255,255,255,0.06);color:var(--text-light);border-radius:30px;padding:10px 16px}
+
+    .section-title{font-size:1.8rem;color:var(--gis-green);font-weight:700;margin-bottom:1.8rem}
+    .card-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);border-radius:14px;padding:20px;box-shadow:var(--card-shadow)}
+
+    /* skills */
+    .skill-badge{display:inline-block;background:rgba(29,185,84,0.12);color:var(--gis-green);padding:8px 12px;border-radius:999px;margin:6px 6px;font-weight:600}
+
+    /* projects */
+    .project-card{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));}
+    .project-card img{width:100%;height:180px;object-fit:cover;filter:contrast(1.02) saturate(1.05)}
+
+    /* timeline */
+    .timeline{position:relative;padding:0;margin:0;list-style:none}
+    .timeline::before{content:'';position:absolute;top:0;bottom:0;right:28px;width:4px;background:linear-gradient(180deg,var(--gis-green),var(--accent-2));border-radius:4px}
+    .timeline-item{position:relative;padding-right:70px;padding-bottom:30px}
+    .timeline-item::before{content:'';position:absolute;right:18px;top:6px;width:18px;height:18px;border-radius:50%;background:#07121a;border:4px solid var(--gis-green);box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+
+    /* contact */
+    .contact-icon{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--gis-green),var(--accent-2));color:#07121a;font-size:1.4rem;margin-left:14px}
+
+    footer{padding:40px 0;background:#061116;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
+
+    .back-to-top{position:fixed;left:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:var(--gis-green);display:flex;align-items:center;justify-content:center;color:#07121a;box-shadow:0 10px 30px rgba(0,0,0,0.6);z-index:999}
+
+    @media(max-width:768px){.hero{padding:80px 0}.profile-img{width:150px;height:150px}}
+
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand brand" href="#home"><i class="fas fa-map-marked-alt me-2"></i>جليت المصطفى</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">نبذة</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">المهارات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">المشاريع</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">الخبرة</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certs">الشهادات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">تواصل</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container text-center">
+      <img src="https://pbs.twimg.com/profile_images/1883545207918006272/p0cDJJ8B_400x400.jpg" alt="صورة شخصية" class="profile-img shadow-lg">
+      <h1>جليت المصطفى</h1>
+      <p class="lead">خبير نظم المعلومات الجغرافية — GIS Specialist | كارتوغرافي وباحث ميداني</p>
+      <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+        <span class="badge-light-custom"><i class="fas fa-map-marker-alt me-2"></i>أولاد تايمة، المغرب</span>
+        <span class="badge-light-custom"><i class="fas fa-envelope me-2"></i>jilitsig@gmail.com</span>
+        <span class="badge-light-custom"><i class="fas fa-phone me-2"></i>+212 668 090 285</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT & QUICK STATS -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="card-panel">
+            <h2 class="section-title">نبذة عني</h2>
+            <p class="mb-3" style="color:var(--muted)">أنا جليت المصطفى، تخصصت في نظم المعلومات الجغرافية (Master in GIS & Remote Sensing) وأعمل كجغرافي ومحلّل بيانات مكانية مع خبرة ميدانية في رسم الخرائط، المعالجة البيانية، وتصميم حلول WebGIS. أهتم بدمج التحليل الميكانيكي للبيانات مع خرائط تفاعلية تساهم في اتخاذ القرار.</p>
+            <p><strong>المؤهلات:</strong> ماستر نظم المعلومات الجغرافية وتطبيقاتها في التهيئة الترابية — جامعة الحسن الثاني بالدار البيضاء.</p>
+            <p><strong>اللغات:</strong> العربية (الأم)، الفرنسية، الإنجليزية.</p>
+            <div class="mt-3">
+              <a href="#contact" class="btn btn-outline-light me-2"><i class="fas fa-comment-dots me-2"></i>تواصل الآن</a>
+              <a href="#" class="btn btn-gis" style="background:var(--gis-green);color:#07121a;font-weight:700;border-radius:10px;padding:10px 16px;">تحميل السيرة الذاتية</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card-panel">
+            <h3 class="mb-3">إحصائيات سريعة</h3>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div>
+                <h4 style="margin:0;color:var(--text-light)">6+ سنوات</h4>
+                <small style="color:var(--muted)">خبرة مهنية في GIS</small>
+              </div>
+              <div>
+                <h4 style="margin:0;color:var(--text-light)">100+</h4>
+                <small style="color:var(--muted)">مشروع ميداني وخارطة</small>
+              </div>
+              <div>
+                <h4 style="margin:0;color:var(--text-light)">50+</h4>
+                <small style="color:var(--muted)">دورات وشهادات</small>
+              </div>
+            </div>
+            <hr style="border-color:rgba(255,255,255,0.03)">
+            <h5 class="mb-2">التقنيات المفضلة</h5>
+            <div>
+              <span class="skill-badge">QGIS</span>
+              <span class="skill-badge">ArcGIS Pro</span>
+              <span class="skill-badge">PostGIS</span>
+              <span class="skill-badge">Python (GeoPandas)</span>
+              <span class="skill-badge">OpenLayers / Leaflet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- قسم الدورات التكوينية -->
+    <section id="formations" class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-5 text-success">الدورات التكوينية</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card bg-secondary text-white rounded-4 shadow-sm">
+                        <img src="https://photos.fife.usercontent.google.com/pw/AP1GczPOdPga120prl9PKZBkIOTiC6JQSGB5Q9kUNPX7f9dWnNo0umM2U3XD=w146-h214-no?authuser=0" class="card-img-top rounded-4" alt="Formation 1">
+                        <div class="card-body">
+                            <h5 class="card-title">دورة تكوينية 1</h5>
+                            <p class="card-text">وصف مختصر عن الدورة التكوينية الأولى.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-secondary text-white rounded-4 shadow-sm">
+                        <img src="https://photos.fife.usercontent.google.com/pw/AP1GczOY330MwNSiXKxCPNtzDm0YFirab2EeqyWcd_CsImeMAFMmNqmdK07r=w164-h220-no?authuser=0" class="card-img-top rounded-4" alt="Formation 2">
+                        <div class="card-body">
+                            <h5 class="card-title">دورة تكوينية 2</h5>
+                            <p class="card-text">وصف مختصر عن الدورة التكوينية الثانية.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-secondary text-white rounded-4 shadow-sm">
+                        <img src="https://photos.fife.usercontent.google.com/pw/AP1GczOAq7kjtSiLNFPfRA3BEPRNgl7mL4kGTKQLps_lNmkFD0fepj90pfmB=w156-h220-no?authuser=0" class="card-img-top rounded-4" alt="Formation 3">
+                        <div class="card-body">
+                            <h5 class="card-title">دورة تكوينية 3</h5>
+                            <p class="card-text">وصف مختصر عن الدورة التكوينية الثالثة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-5 bg-dark" style="background:transparent">
+    <div class="container">
+      <h2 class="section-title">المهارات التقنية</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card-panel">
+            <h5>تحليل البيانات المكانية</h5>
+            <p style="color:var(--muted)">نمذجة بيانات مكانية، تحليل الشبكات، تحليل استعمالات الأرض، استخراج مؤشرات بيئية.</p>
+            <div class="mt-2">
+              <span class="skill-badge">Raster Analysis</span>
+              <span class="skill-badge">Vector Processing</span>
+              <span class="skill-badge">GEE</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-panel">
+            <h5>تطوير الخرائط والـ WebGIS</h5>
+            <p style="color:var(--muted)">بناء خرائط تفاعلية، واجهات مستخدم خرائط، تكامل مع قواعد بيانات مكانية.</p>
+            <div class="mt-2">
+              <span class="skill-badge">OpenLayers</span>
+              <span class="skill-badge">Leaflet</span>
+              <span class="skill-badge">ArcGIS API for JS</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-panel">
+            <h5>برمجة ومعالجة بيانات</h5>
+            <p style="color:var(--muted)">نصوص أتمتة، معالجة الشبكات، وواجهات لعرض النتائج المكانية.</p>
+            <div class="mt-2">
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">GeoPandas</span>
+              <span class="skill-badge">PostgreSQL/PostGIS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="section-title">أبرز المشاريع</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80&auto=format&fit=crop&s=da8c8b2d6c2f" alt="مشروع GIS">
+            <div class="p-3">
+              <h5>نظام إدارة العقارات (WebGIS)</h5>
+              <p style="color:var(--muted)">تطبيق لإدارة وثائق الأراضي والخرائط المكانية مع واجهة بحث متقدمة وربط مع PostGIS.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="badge" style="background:rgba(255,255,255,0.03);color:var(--muted)">React</span>
+                  <span class="badge" style="background:rgba(255,255,255,0.03);color:var(--muted)">ArcGIS</span>
+                </div>
+                <a href="#" class="btn btn-sm" style="background:var(--gis-green);color:#07121a">عرض</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=900&q=80&auto=format&fit=crop&s=1c5b6c5d4b" alt="مشروع">
+            <div class="p-3">
+              <h5>لوحة مؤشرات بيئية</h5>
+              <p style="color:var(--muted)">لوحة بيانات زمنية لرصد التغيرات باستخدام Google Earth Engine وخرائط زمنية.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="badge" style="background:rgba(255,255,255,0.03);color:var(--muted)">GEE</span>
+                  <span class="badge" style="background:rgba(255,255,255,0.03);color:var(--muted)">Python</span>
+                </div>
+                <a href="#" class="btn btn-sm" style="background:var(--gis-green);color:#07121a">عرض</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1486401899868-0e435ed85113?w=900&q=80&auto=format&fit=crop&s=3f1f6f4a1a" alt="مشروع">
+            <div class="p-3">
+              <h5>تطبيق خرائط تفاعلية للبلدية</h5>
+              <p style="color:var(--muted)">خرائط عرضية لملكيات الأراضي، شبكات المياه والصرف، مع طبقات قابلة للطباعة وتقارير ميدانية.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="badge" style="background:rgba(255,255,255,0.03);color:var(--muted)">Leaflet</span>
+                  <span class="badge" style="background:rgba(255,255,255,0.03);color:var(--muted)">PostGIS</span>
+                </div>
+                <a href="#" class="btn btn-sm" style="background:var(--gis-green);color:#07121a">عرض</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-5">
+    <div class="container">
+      <h2 class="section-title">الخبرة العملية</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card-panel">
+            <h5 class="mb-3">الخبرة المهنية</h5>
+            <ul class="timeline">
+              <li class="timeline-item">
+                <h6>مطور GIS - شركة DEF</h6>
+                <small style="color:var(--muted)">2020 - 2022</small>
+                <p style="color:var(--muted)">إنشاء تطبيقات GIS للإدارات الحكومية، إعداد خرائط ميدانية، وربط قواعد البيانات المكانية.</p>
+              </li>
+              <li class="timeline-item">
+                <h6>مطور Frontend - شركة ABC</h6>
+                <small style="color:var(--muted)">2022 - 2024</small>
+                <p style="color:var(--muted)">تطوير واجهات مستخدم متقدمة لعرض البيانات الجغرافية.</p>
+              </li>
+              <li class="timeline-item">
+                <h6>مطور ويب كبير - شركة XYZ</h6>
+                <small style="color:var(--muted)">2024 - 2025</small>
+                <p style="color:var(--muted)">قيادة فرق التطوير وتنفيذ مشاريع WebGIS.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-panel">
+            <h5 class="mb-3">التعليم والشهادات</h5>
+            <ul class="timeline">
+              <li class="timeline-item">
+                <h6>ماستر نظم المعلومات الجغرافية وتطبيقاتها في التهيئة الترابية</h6>
+                <small style="color:var(--muted)">جامعة الحسن الثاني، الدار البيضاء</small>
+              </li>
+              <li class="timeline-item">
+                <h6>React Developer — Coursera (Meta)</h6>
+                <small style="color:var(--muted)">2024</small>
+              </li>
+              <li class="timeline-item">
+                <h6>دورات Esri Academy وUdemy في GIS & WebGIS</h6>
+                <small style="color:var(--muted)">2023 - 2025</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certs" class="py-5 bg-dark" style="background:transparent">
+    <div class="container">
+      <h2 class="section-title">الشهادات والدورات</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card-panel">
+            <h6>دورة GIS الاحترافية — Esri Academy</h6>
+            <small style="color:var(--muted)">2024</small>
+            <p style="color:var(--muted)">ArcGIS Pro - Spatial Analysis - Geodatabase design.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-panel">
+            <h6>Front-end Advanced — Coursera</h6>
+            <small style="color:var(--muted)">2025</small>
+            <p style="color:var(--muted)">React.js, performance, accessibility.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-panel">
+            <h6>Full Stack Developer — Udemy</h6>
+            <small style="color:var(--muted)">2025</small>
+            <p style="color:var(--muted)">MERN stack and WebGIS integration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="section-title">تواصل معي</h2>
+      <div class="row g-4">
+        <div class="col-md-5">
+          <div class="card-panel d-flex flex-column align-items-start">
+            <div class="d-flex align-items-center mb-3">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h6 class="mb-0">أولاد تايمة</h6>
+                <small style="color:var(--muted)">المغرب</small>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-3">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h6 class="mb-0">+212 668 090 285</h6>
+                <small style="color:var(--muted)">متاح للاتصال والواجبات الميدانية</small>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-3">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h6 class="mb-0">jilitsig@gmail.com</h6>
+                <small style="color:var(--muted)">للمراسلات الرسمية</small>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <a href="#" class="btn" style="background:var(--gis-green);color:#07121a">أرسل رسالة</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <form class="card-panel">
+            <div class="mb-3">
+              <label class="form-label">الاسم الكامل</label>
+              <input class="form-control" placeholder="اسمك الكامل">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">البريد الإلكتروني</label>
+              <input class="form-control" placeholder="example@mail.com">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">الموضوع</label>
+              <input class="form-control" placeholder="موضوع الرسالة">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">الرسالة</label>
+              <textarea rows="6" class="form-control" placeholder="اكتب رسالتك..."></textarea>
+            </div>
+            <button type="submit" class="btn" style="background:var(--gis-green);color:#07121a">إرسال</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container text-center">
+      <div class="mb-3">
+        <a href="#" class="me-2" style="color:var(--muted)"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#" class="me-2" style="color:var(--muted)"><i class="fab fa-github fa-lg"></i></a>
+        <a href="#" style="color:var(--muted)"><i class="fas fa-envelope fa-lg"></i></a>
+      </div>
+      <p style="margin:0;color:var(--muted)">&copy; 2025 جليت المصطفى — خبير نظم المعلومات الجغرافية. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top" id="backToTop" title="عودة للأعلى"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
+      });
+    });
+
+    // back to top
+    const back = document.getElementById('backToTop');
+    window.addEventListener('scroll',()=>{
+      if(window.pageYOffset > 300) back.style.display = 'flex'; else back.style.display = 'none';
+    });
+
+    // simple form handler (non functional placeholder)
+    document.querySelectorAll('form').forEach(f=>{
+      f.addEventListener('submit',e=>{e.preventDefault();alert('شكراً! النموذج مجرد عرض في هذه النسخة. ضع endpoint إذا رغبت في تفعيل الإرسال.');});
+    });
+  </script>
+</body>
+</html>
