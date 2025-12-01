@@ -414,6 +414,155 @@
     </div>
   </section>
 
+  <!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio خرائط QGIS Cloud</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #4A90E2;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 1em;
+      opacity: 0.85;
+    }
+
+    /* --- حاوية الخرائط جنب بعض --- */
+    .maps-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .map-container {
+      flex: 1 1 500px; /* الحد الأدنى 500px لكل خريطة */
+      max-width: 600px;
+      border: 3px solid #4A90E2;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      overflow: hidden;
+      transition: transform 0.3s;
+      background: white;
+    }
+
+    .map-container:hover {
+      transform: scale(1.02);
+    }
+
+    iframe {
+      width: 100%;
+      height: 70vh;
+      border: 0;
+    }
+
+    /* --- زر فتح الخريطة في نافذة جديدة --- */
+    .open-map-btn {
+      display: inline-block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #4A90E2;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+      text-align: center;
+    }
+
+    .open-map-btn:hover {
+      background-color: #357ABD;
+      transform: scale(1.05);
+    }
+
+    /* --- عنوان الخرائط --- */
+    .map-title {
+      text-align: center;
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #555;
+      background-color: #e6eaf0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Portfolio خرائط QGIS Cloud</h1>
+    <p>عرض مشاريع تفاعلية</p>
+  </header>
+
+  <div class="maps-wrapper">
+
+    <!-- الخريطة الأولى -->
+    <div class="map-container">
+      <a href="https://qgiscloud.com/JILITSIG1992/projet_oujda_CCl_/" target="_blank" class="open-map-btn">
+        تكبير / فتح في نافذة جديدة
+      </a>
+      <iframe 
+        src="https://qgiscloud.com/JILITSIG1992/projet_oujda_CCl_/" 
+        allowfullscreen 
+        loading="lazy">
+      </iframe>
+      <div class="map-title">
+        مشروع وجدة
+      </div>
+    </div>
+
+    <!-- الخريطة الثانية -->
+    <div class="map-container">
+      <a href="https://qgiscloud.com/jilitsig/prj_OCP2025_1" target="_blank" class="open-map-btn">
+        تكبير / فتح في نافذة جديدة
+      </a>
+      <iframe 
+        src="https://qgiscloud.com/jilitsig/prj_OCP2025_1" 
+        allowfullscreen 
+        loading="lazy">
+      </iframe>
+      <div class="map-title">
+        مشروع OCP 2025
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    جميع الحقوق محفوظة © 2025 | منصة عرض الخرائط
+  </footer>
+
+</body>
+</html>
+
   <!-- CONTACT -->
   <section id="contact" class="py-5 reveal">
     <div class="container">
@@ -463,3 +612,4 @@
 
 </body>
 </html>
+
